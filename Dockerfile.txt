@@ -1,0 +1,8 @@
+FROM python:3.13-alpine@sha256:7984cf56ceaddebe4fefeb75d64000b9f45d8b77b11a09b24524da6cdc3af0c8
+WORKDIR /app
+COPY requirements-lock.txt ./
+RUN pip install --no-cache-dir --require-hashes -r requirements-lock.txt && adduser -D app
+COPY app.py ./
+COPY templates ./templates
+USER app
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "1", "--threads", "2", "--access-logfile", "-", "app:app"]

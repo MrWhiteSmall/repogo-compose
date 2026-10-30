@@ -1,0 +1,44 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.txt
+    ports:
+      - "127.0.0.1:18640:8000"
+    depends_on:
+      store:
+        condition: service_healthy
+    networks: [front, lab]
+    read_only: true
+    tmpfs: [/tmp]
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+    mem_limit: 128m
+    cpus: 0.5
+    pids_limit: 80
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=3)"]
+      interval: 3s
+      timeout: 4s
+      retries: 10
+  store:
+    image: redis:7.2-alpine@sha256:2c933526722b4126a61d5c170f766dc159adf97682f0b1cbbc27b1666ba96d84
+    command: [redis-server, --appendonly, 'yes', --appendfsync, always]
+    volumes:
+      - notes:/data
+    networks: [lab]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 128m
+    cpus: 0.5
+    pids_limit: 80
+    healthcheck:
+      test: [CMD, redis-cli, ping]
+      interval: 3s
+      timeout: 3s
+      retries: 10
+volumes:
+  notes:
+networks:
+  front:
+  lab:
+    internal: true
