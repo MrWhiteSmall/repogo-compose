@@ -20,6 +20,8 @@
 
 ## 交付与来源
 
+RepoGo 原创交付维护仓库已公开，可匿名访问：<https://gitee.com/lushengjie/repogo-compose>。可见性说明更新于2026-10-31；原星球附件保留首发版本。
+
 这里提供原创中文入口、Flask 应用、固定镜像摘要、带哈希的依赖锁、手册与排坑图。无第三方模型 API 或 GPU 需求；Docker Desktop 是否免费适用取决于组织与当前条款，计算机、网络和电费仍由使用者承担。
 
 原项目：<https://github.com/docker/compose>（Apache-2.0）。本例使用 Redis 7.2 分支镜像（BSD-3-Clause）；没有打包上游程序或容器镜像。详细来源见 [ATTRIBUTION.md](ATTRIBUTION.md)。

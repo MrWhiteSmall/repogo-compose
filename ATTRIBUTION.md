@@ -10,4 +10,4 @@ Python基础镜像、Python/Flask/Jinja/Werkzeug/Click/Redis客户端/Gunicorn�
 
 说明依据：<https://docs.docker.com/compose/gettingstarted/>、<https://docs.docker.com/get-started/docker-concepts/running-containers/persisting-container-data/>。第三方博客仅作写作结构观察，不复制其正文、图或个人经历。AI辅助编写与图解排版；效果图片来自自己实际运行，示意图另标。
 
-Gitee维护仓库在星球首发后按用户授权公开：<https://gitee.com/lushengjie/repogo-compose>。公开核验前不将其描述为已可匿名访问；原始交付记录保留实际状态。
+Gitee维护仓库已于2026-10-31星球首发后公开，并完成匿名访问核验：<https://gitee.com/lushengjie/repogo-compose>。当前说明同步于2026-10-31；原始交付包与发布审核记录保留首发时的实际状态。
